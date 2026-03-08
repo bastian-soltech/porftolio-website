@@ -1,109 +1,76 @@
-import { FaEnvelope, FaTiktok, FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { FaExternalLinkAlt } from "react-icons/fa";
+import SectionHeading from "../shared/SectionHeading";
+import { socialLinks } from "../../constants";
 
 export default function Contact() {
-  const contactInfo = [
-    {
-      icon: <FaEnvelope className="text-2xl" />,
-      label: "Email",
-      value: "subastianhambali@gmail.com",
-      link: "https://mail.google.com/mail/?view=cm&fs=1&to=subastianhambali@gmail.com&su=Tanya%20Project&body=Halo%20Hambali,",
-      color: "from-green-500/20 to-emerald-500/20",
-      textColor: "text-green-400"
-    },
-    {
-      icon: <FaTiktok className="text-2xl" />,
-      label: "TikTok",
-      value: "@tyan.dev",
-      link: "https://www.tiktok.com/@tyan.dev?is_from_webapp=1&sender_device=pc",
-      color: "from-pink-500/20 to-purple-500/20",
-      textColor: "text-pink-400"
-    },
-    {
-      icon: <FaGithub className="text-2xl" />,
-      label: "Github",
-      value: "hambali-020608",
-      link: "https://github.com/hambali-020608",
-      color: "from-gray-500/20 to-slate-500/20",
-      textColor: "text-gray-300"
-    }
-  ];
-
   return (
-    <section id="contact" className="relative py-24 bg-gray-950 overflow-hidden">
-      {/* Background Elements */}
+    <section id="contact" aria-label="Contact Information" className="py-24 bg-gray-950 relative overflow-hidden">
+      {/* Background Ambience */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-purple-900/10 rounded-full blur-[120px] animate-pulse"></div>
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-cyan-900/10 rounded-full blur-[120px] animate-pulse delay-1000"></div>
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-900/5 rounded-full blur-[120px] animate-pulse"></div>
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-cyan-900/5 rounded-full blur-[120px] animate-pulse delay-1000"></div>
       </div>
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
+        <SectionHeading 
+          badge="Inquiry"
+          title="Let's Connect"
+          subtitle="Whether you have a question, a project idea, or just want to say hi, I'm always open to new opportunities."
+        />
 
-        {/* Header */}
-        <div
-          
-          className="text-center mb-20"
-        >
-          <span data-aos="fade-down"
-          data-aos-duration="1000" className="text-cyan-400 font-medium tracking-wider uppercase text-sm border border-cyan-500/30 px-4 py-1 rounded-full bg-cyan-500/5">
-            Get In Touch
-          </span>
-          <h2 data-aos="fade-down"
-          data-aos-duration="1000" className="text-4xl md:text-5xl font-extrabold text-white mt-4 font-orbitron">
-            Let's <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">Connect</span>
-          </h2>
-          <div data-aos="zoom-in"
-          data-aos-duration="1000" className="w-24 h-1 bg-gradient-to-r from-purple-500 to-cyan-500 mx-auto mt-6 rounded-full"></div>
-        </div>
-
-        <div className="max-w-4xl mx-auto">
-          <div
-            data-aos="fade-up"
-            data-aos-duration="1000"
-            className="grid grid-cols-1 md:grid-cols-3 gap-6"
-          >
-            {contactInfo.map((info, idx) => (
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {socialLinks.map((info, idx) => (
               <a
-                key={idx}
-                href={info.link}
+                key={info.name}
+                href={info.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative p-8 rounded-3xl bg-gray-900/50 border border-gray-800 hover:border-gray-700 transition-all duration-300 flex flex-col items-center text-center overflow-hidden"
+                data-aos="fade-up"
+                data-aos-delay={idx * 100}
+                className="group relative p-10 rounded-[2.5rem] bg-gray-900/30 border border-gray-800 hover:border-cyan-500/30 transition-all duration-500 flex flex-col items-center text-center overflow-hidden hover:-translate-y-2 shadow-xl"
               >
-                {/* Hover Glow */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${info.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+                {/* Subtle Hover Glow */}
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                <div className={`w-16 h-16 rounded-2xl bg-gray-800 flex items-center justify-center mb-6 ${info.textColor} group-hover:scale-110 transition-transform duration-300 relative z-10 shadow-lg`}>
-                  {info.icon}
+                <div className="w-20 h-20 rounded-2xl bg-gray-800/50 flex items-center justify-center mb-8 text-cyan-400 group-hover:scale-110 group-hover:bg-cyan-500 group-hover:text-white transition-all duration-500 relative z-10 shadow-lg group-hover:shadow-cyan-500/20">
+                  <info.icon size={32} />
                 </div>
 
                 <div className="relative z-10">
-                  <p className="text-xs text-gray-500 uppercase tracking-widest mb-1 font-bold">{info.label}</p>
-                  <p className="text-white font-medium mb-4">{info.value}</p>
+                  <h3 className="text-xs text-gray-500 uppercase tracking-[0.3em] mb-2 font-bold">{info.name}</h3>
+                  <p className="text-white font-medium mb-6 text-sm opacity-80 group-hover:opacity-100 transition-opacity">
+                    {info.name === "Email" ? "subastianhambali@gmail.com" : info.name === "Github" ? "@hambali-020608" : "@tyan.dev"}
+                  </p>
 
-                  <div className={`inline-flex items-center gap-2 text-sm ${info.textColor} font-semibold`}>
-                    Contact Me <FaExternalLinkAlt className="text-xs" />
+                  <div className="inline-flex items-center gap-2 text-xs text-cyan-400 font-bold uppercase tracking-widest group-hover:gap-4 transition-all">
+                    Reach Out <FaExternalLinkAlt className="text-[10px]" />
                   </div>
                 </div>
-
-                {/* Bottom Line Decor */}
-                <div className={`absolute bottom-0 left-0 h-1 w-full bg-gradient-to-r ${info.color.replace('/20', '')} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500`}></div>
               </a>
             ))}
           </div>
 
           <div
             data-aos="fade-up"
-            data-aos-duration="1000"
-            data-aos-delay="200"
-            className="mt-16 text-center"
+            data-aos-delay="300"
+            className="mt-20 text-center bg-gray-900/20 border border-gray-800/50 p-12 rounded-[3rem] backdrop-blur-sm"
           >
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
-              I'm always open to new projects, collaborations, or even just a friendly chat.
-              Feel free to reach out through any of these platforms!
+            <h3 className="text-2xl font-bold text-white mb-6 font-orbitron">Interested in collaborating?</h3>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed font-light">
+              I'm currently looking for new opportunities and my inbox is always open. 
+              Let's build something amazing together!
             </p>
+            <div className="mt-10">
+              <a 
+                href="mailto:subastianhambali@gmail.com"
+                className="inline-block px-10 py-4 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-full transition-all hover:scale-105 active:scale-95 shadow-xl shadow-cyan-500/20 uppercase tracking-widest text-sm"
+              >
+                Send an Email
+              </a>
+            </div>
           </div>
         </div>
-
       </div>
     </section>
   );

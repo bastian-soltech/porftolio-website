@@ -27,11 +27,13 @@ function App() {
       <div className={`transition-opacity duration-700 ${isLoaded ? "opacity-100" : "opacity-0"} `}>
         {/* Navigation Bar */}
         <NavBar />
-        <Hero />
-        <Skills />
-        <Projects />
-        <About />
-        <Contact />
+        <main>
+          <Hero />
+          <Skills />
+          <Projects />
+          <About />
+          <Contact />
+        </main>
         <Footer />
       </div>
     </>

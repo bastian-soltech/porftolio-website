@@ -1,66 +1,55 @@
-import { FaCode, FaBrain, FaGamepad, FaRocket, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { FaRocket, FaEnvelope, FaMapMarkerAlt, FaFileDownload } from "react-icons/fa";
+import SectionHeading from "../shared/SectionHeading";
+import { stats } from "../../constants";
 
 export default function About() {
-  const stats = [
-    { label: "Years Experience", value: "1+" },
-    { label: "Projects Completed", value: "10+" },
-    { label: "Technologies Mastered", value: "15+" },
-  ];
-
   return (
-    <section id="about" className="relative py-24 bg-gray-950 overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-cyan-900/10 to-transparent pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-900/10 rounded-full blur-[100px] animate-pulse pointer-events-none"></div>
+    <section id="about" aria-label="About Me" className="py-24 bg-gray-950 relative overflow-hidden">
+      {/* Background Ambience */}
+      <div className="absolute top-0 right-0 w-1/4 h-full bg-gradient-to-l from-cyan-900/5 to-transparent pointer-events-none"></div>
+      <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-900/10 rounded-full blur-[120px] pointer-events-none"></div>
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
+        <SectionHeading 
+          badge="Biography"
+          title="About Me"
+          subtitle="A deeper look into my journey as a technologist and my passion for building innovative solutions."
+        />
 
-        {/* Section Header */}
-        <div
-          data-aos="fade-down"
-          data-aos-duration="1000"
-          className="text-center mb-16"
-        >
-
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white mt-4 font-orbitron">
-            About <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">Me</span>
-          </h2>
-        </div>
-
-        <div className="flex flex-col lg:flex-row items-center gap-16">
+        <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
 
           {/* Left Column: Image Area */}
           <div
             data-aos="fade-right"
-            data-aos-duration="1000"
-            className="w-full lg:w-1/2 relative"
+            className="w-full lg:w-5/12 relative"
           >
             <div className="relative w-72 h-72 md:w-96 md:h-96 mx-auto lg:mx-0">
-              {/* Rotating Border */}
-              <div className="absolute inset-0 rounded-full border-2 border-dashed border-cyan-500/30 animate-[spin_10s_linear_infinite]"></div>
-              <div className="absolute inset-4 rounded-full border-2 border-dashed border-purple-500/30 animate-[spin_15s_linear_infinite_reverse]"></div>
-
+              {/* Decorative Geometric Shapes */}
+              <div className="absolute -top-6 -left-6 w-32 h-32 border-t-2 border-l-2 border-cyan-500/30 rounded-tl-3xl"></div>
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 border-b-2 border-r-2 border-blue-500/30 rounded-br-3xl"></div>
+              
               {/* Main Image Container */}
-              <div className="absolute inset-8 rounded-full overflow-hidden border-4 border-gray-800 shadow-[0_0_50px_rgba(34,211,238,0.2)]">
+              <div className="relative w-full h-full rounded-[3rem] overflow-hidden border-2 border-gray-800 shadow-2xl group">
                 <img
                   src="/my2.jpeg"
                   alt="Hambali Subastian"
-                  className="w-96 h-96 object-cover hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-transparent opacity-60"></div>
               </div>
 
-              {/* Floating Badge */}
+              {/* Floating Status Badge */}
               <div
                 data-aos="zoom-in"
-                // data-aos-delay="100"
-                className="absolute bottom-0 right-10 bg-gray-900 border border-gray-700 p-3 rounded-2xl shadow-xl flex items-center gap-3"
+                data-aos-delay="300"
+                className="absolute -bottom-4 -right-4 bg-gray-900/90 backdrop-blur-md border border-gray-700 p-4 rounded-2xl shadow-2xl flex items-center gap-3"
               >
-                <div className="bg-cyan-500/20 p-2 rounded-full text-cyan-400">
-                  <FaRocket />
+                <div className="w-10 h-10 bg-cyan-500/10 rounded-full flex items-center justify-center text-cyan-400">
+                  <FaRocket className="animate-bounce" />
                 </div>
                 <div>
-                  <p className="text-xs text-gray-400">Status</p>
-                  <p className="text-sm font-bold text-white">Open to Work</p>
+                  <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Status</p>
+                  <p className="text-xs font-bold text-white uppercase">Open to Innovation</p>
                 </div>
               </div>
             </div>
@@ -69,46 +58,57 @@ export default function About() {
           {/* Right Column: Content */}
           <div
             data-aos="fade-left"
-            data-aos-duration="1000"
-            className="w-full lg:w-1/2 space-y-6"
+            className="w-full lg:w-7/12 space-y-8"
           >
-            <h3 className="text-3xl font-bold text-white">
-              Driven by <span className="text-purple-400">Innovation</span> & <span className="text-cyan-400">Technology</span>
-            </h3>
+            <div className="space-y-4">
+              <h3 className="text-3xl md:text-4xl font-bold text-white font-orbitron">
+                Driven by <span className="text-cyan-400">Innovation</span> & <span className="text-blue-500">Excellence</span>
+              </h3>
+              <div className="h-1 w-20 bg-cyan-500 rounded-full"></div>
+            </div>
 
-            <p className="text-gray-400 leading-relaxed text-lg">
-              I'm <span className="text-white font-semibold">Hambali Subastian</span>, a passionate technologist based in Indonesia.
-              My journey spans across <span className="text-cyan-400">Fullstack Development</span>, <span className="text-purple-400">Game Dev</span>, and <span className="text-pink-400">AI</span>.
+            <p className="text-gray-400 leading-relaxed text-lg font-light">
+              I'm <span className="text-white font-semibold">Hambali Subastian</span>, a passionate technologist based in Indonesia. 
+              With a strong foundation in <span className="text-cyan-400 font-medium">Software Engineering</span>, I bridge the gap between creative problem-solving and technical execution.
             </p>
 
-            <p className="text-gray-400 leading-relaxed">
-              I am obsessed with the intersection of code, mathematics, and creativity. Whether I'm building complex web systems, training neural networks, or crafting immersive game worlds, I always strive for excellence and innovation.
+            <p className="text-gray-400 leading-relaxed font-light">
+              My journey is fueled by a relentless curiosity about how things work. Whether I'm building scalable <span className="text-white">fullstack applications</span>, architecting <span className="text-white">software systems</span>, or extracting patterns from <span className="text-white">complex datasets</span>, I strive for clean code and impactful results.
             </p>
 
             {/* Stats Grid */}
-            <div className="grid grid-cols-3 gap-4 py-6 border-y border-gray-800">
+            <div className="grid grid-cols-3 gap-6 py-8 border-y border-gray-800/50">
               {stats.map((stat, idx) => (
-                <div key={idx} className="text-center">
-                  <h4 className="text-2xl md:text-3xl font-bold text-white font-orbitron">{stat.value}</h4>
-                  <p className="text-xs md:text-sm text-gray-500 uppercase tracking-wide mt-1">{stat.label}</p>
+                <div key={idx} className="text-center lg:text-left">
+                  <h4 className="text-3xl md:text-4xl font-black text-white font-orbitron mb-1">{stat.value}</h4>
+                  <p className="text-[10px] md:text-xs text-gray-500 uppercase tracking-[0.2em] font-bold">{stat.label}</p>
                 </div>
               ))}
             </div>
 
-            {/* Contact Info */}
-            <div className="flex flex-col sm:flex-row gap-6 pt-2">
-              <a href="mailto:subastianhambali@gmail.com" className="flex items-center gap-3 text-gray-300 hover:text-cyan-400 transition-colors group">
-                <div className="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
-                  <FaEnvelope />
+            {/* Action Buttons & Contact Info */}
+            <div className="flex flex-col sm:flex-row items-center gap-8 pt-4">
+              <div className="flex flex-col gap-4 w-full sm:w-auto">
+                <div className="flex items-center gap-4 text-gray-400 hover:text-cyan-400 transition-colors group">
+                  <div className="w-10 h-10 rounded-xl bg-gray-900 border border-gray-800 flex items-center justify-center group-hover:border-cyan-500/50 transition-colors">
+                    <FaEnvelope />
+                  </div>
+                  <span className="text-sm font-medium">subastianhambali@gmail.com</span>
                 </div>
-                <span className="text-sm">subastianhambali@gmail.com</span>
-              </a>
-              <div className="flex items-center gap-3 text-gray-300 group">
-                <div className="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center">
-                  <FaMapMarkerAlt />
+                <div className="flex items-center gap-4 text-gray-400 group">
+                  <div className="w-10 h-10 rounded-xl bg-gray-900 border border-gray-800 flex items-center justify-center">
+                    <FaMapMarkerAlt />
+                  </div>
+                  <span className="text-sm font-medium">Indonesia (GMT+7)</span>
                 </div>
-                <span className="text-sm">Indonesia (+62 882-9890-9654)</span>
               </div>
+              
+              <div className="h-full hidden sm:block w-px bg-gray-800 mx-4"></div>
+
+              {/* <button className="w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 bg-gray-900 border border-gray-800 text-white rounded-2xl hover:border-cyan-500/50 transition-all font-bold tracking-widest text-sm">
+                <FaFileDownload className="text-cyan-400" />
+                DOWNLOAD CV
+              </button> */}
             </div>
           </div>
 

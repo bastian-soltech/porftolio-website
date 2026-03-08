@@ -1,123 +1,109 @@
 import { ReactTyped } from "react-typed";
-import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope, FaTiktok } from "react-icons/fa";
 import Hero3D from "../canvas/Hero3D";
+import { socialLinks } from "../../constants";
 
 export default function Hero() {
-
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-24 bg-gray-950 overflow-hidden"
+      aria-label="Hero Section"
+      className="relative min-h-[100svh] flex items-center justify-center px-6 md:px-12 lg:px-24 bg-gray-950 overflow-hidden"
     >
-      {/* Background Ambience */}
-      <div className="absolute top-[-20%] left-[-10%] w-[400px] h-[400px] md:w-[600px] md:h-[600px] bg-purple-700/20 rounded-full blur-[120px] mix-blend-screen opacity-60 animate-pulse"></div>
-      <div className="absolute bottom-[-20%] right-[-10%] w-[400px] h-[400px] md:w-[600px] md:h-[600px] bg-cyan-600/20 rounded-full blur-[120px] mix-blend-screen opacity-60 animate-pulse delay-75"></div>
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(0,0,0,0)_0%,rgba(3,7,18,0.8)_100%)] z-0 pointer-events-none"></div>
+      {/* Background Ambience - More subtle and professional */}
+      <div className="absolute top-[-10%] left-[-5%] w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-cyan-900/10 rounded-full blur-[100px] opacity-40 animate-pulse pointer-events-none"></div>
+      <div className="absolute bottom-[-10%] right-[-5%] w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-blue-900/10 rounded-full blur-[100px] opacity-40 animate-pulse delay-75 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(3,7,18,0.9)_100%)] z-0 pointer-events-none"></div>
 
       <div className="container mx-auto flex flex-col-reverse md:flex-row items-center justify-between z-10 w-full max-w-7xl">
 
         {/* Left Content: Text */}
         <div
-          className="w-full md:w-1/2 text-center md:text-left mt-10 md:mt-0 space-y-6"
+          className="w-full md:w-1/2 text-center md:text-left mt-12 md:mt-0 space-y-8"
           data-aos="fade-right"
           data-aos-duration="1000"
         >
-          <h1
-            className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight font-orbitron"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            Hi, I'm <br />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 drop-shadow-md">
-              Hambali
+          <div className="space-y-4">
+            <span className="inline-block px-4 py-1.5 text-xs font-semibold tracking-[0.2em] text-cyan-400 uppercase border border-cyan-500/20 rounded-full bg-cyan-500/5 backdrop-blur-sm mb-4">
+              Welcome to my portfolio
             </span>
-          </h1>
+            <h1 className="text-5xl md:text-6xl lg:text-8xl font-black text-white leading-[1.1] font-orbitron tracking-tight">
+              Hi, I'm <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+                Hambali
+              </span>
+            </h1>
+          </div>
 
-          <div
-            className="h-20 md:h-16"
-            data-aos="fade-up"
-            data-aos-delay="400"
-          >
-            <span className="text-2xl md:text-3xl lg:text-3xl font-semibold text-gray-300">
-              I am a{" "}
+          <div className="h-16 md:h-12">
+            <p className="text-xl md:text-2xl lg:text-3xl font-medium text-gray-300 font-outfit">
+              A professional{" "}
               <ReactTyped
                 strings={[
-                  "Fullstack Web Developer",
-                  "Game Developer",
-                  // "Software Engineer",
-                  "AI Engineer",
+                  "Fullstack Developer",
+                  "Software Engineer",
                   "Data Analyst",
-                  "Data Scientist",
                 ]}
                 typeSpeed={50}
                 backSpeed={40}
-                className="text-cyan-300 drop-shadow-[0_0_10px_rgba(34,211,238,0.5)]"
+                className="text-cyan-400 font-bold border-b-2 border-cyan-500/30"
                 loop
               />
-            </span>
+            </p>
           </div>
 
-          <p
-            className="text-base md:text-lg text-gray-400 max-w-lg mx-auto md:mx-0 leading-relaxed max-w-xl"
-       
-          >
-            Crafting immersive digital experiences with cutting-edge technologies. I build scalable webs, intelligent AI systems, and engaging games.
+          <p className="text-lg text-gray-400 max-w-xl mx-auto md:mx-0 leading-relaxed font-light">
+            I specialize in crafting high-performance web applications, architecting robust software solutions, and deriving meaningful insights from data.
           </p>
 
           {/* Social & CTA */}
-          <div
-            className="flex flex-col md:flex-row items-center gap-6 mt-8"
-            data-aos="fade-up"
-            data-aos-delay="800"
-          >
+          <div className="flex flex-col sm:flex-row items-center gap-8 mt-10">
             <a
               href="#projects"
-              className="group relative px-8 py-3 bg-gradient-to-r from-cyan-600 to-blue-600 text-white font-bold rounded-full shadow-lg shadow-cyan-500/20 overflow-hidden transition-all hover:scale-105 hover:shadow-cyan-500/40"
+              className="group relative px-10 py-4 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-full shadow-lg shadow-cyan-500/20 transition-all duration-300 hover:scale-105 hover:shadow-cyan-500/40 active:scale-95"
             >
-              <div className="absolute inset-0 w-full h-full bg-white/20 group-hover:translate-x-full transition-transform duration-500 -skew-x-12 -translate-x-full"></div>
-              View My Work
+              Explore My Work
             </a>
 
-            <div className="flex items-center gap-5 text-gray-400">
-              <a href="https://github.com/hambali-020608" className="hover:text-white hover:scale-110 transition-all duration-300 text-2xl">
-                <FaGithub />
-              </a>
-              {/* <a href="#" className="hover:text-blue-400 hover:scale-110 transition-all duration-300 text-2xl">
-                <FaLinkedin />
-              </a> */}
-              <a href="https://www.tiktok.com/@tyan.dev?is_from_webapp=1&sender_device=pc" className="hover:text-pink-400 hover:scale-110 transition-all duration-300 text-2xl">
-                <FaTiktok />
-              </a>
-              {/* <a href="#" className="hover:text-pink-400 hover:scale-110 transition-all duration-300 text-2xl">
-                 <FaInstagram />
-               </a> */}
-              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=subastianhambali@gmail.com&su=Tanya%20Project&body=Halo%20Hambali," className="hover:text-green-400 hover:scale-110 transition-all duration-300 text-2xl">
-                <FaEnvelope />
-              </a>
-            </div>
+            <nav className="flex items-center gap-6" aria-label="Social Media Links">
+              {socialLinks.map((link) => (
+                <a 
+                  key={link.name}
+                  href={link.href} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={link.name}
+                  className={`text-2xl text-gray-400 transition-all duration-300 ${link.color} hover:scale-125`}
+                >
+                  <link.icon />
+                </a>
+              ))}
+            </nav>
           </div>
         </div>
 
-        {/* Right Content: Image */}
+        {/* Right Content: 3D Model */}
         <div
           className="w-full md:w-1/2 flex justify-center md:justify-end relative"
           data-aos="fade-left"
           data-aos-duration="1200"
         >
-          {/* 3D Model Container */}
-          <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px] cursor-grab active:cursor-grabbing">
+          <div className="relative w-full h-[350px] md:h-[500px] lg:h-[600px] xl:h-[700px] cursor-grab active:cursor-grabbing">
             <Hero3D />
+            {/* Subtle glow behind model */}
+            <div className="absolute inset-0 bg-cyan-500/5 rounded-full blur-[100px] -z-10"></div>
           </div>
         </div>
       </div>
 
       {/* Scroll Down Indicator */}
-      <div
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-gray-500 flex flex-col items-center gap-2 animate-bounce"
+      <a
+        href="#skills"
+        aria-label="Scroll to Skills section"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-gray-500 flex flex-col items-center gap-3 animate-bounce hover:text-cyan-400 transition-colors"
       >
-        <span className="text-sm uppercase tracking-widest text-xs">Scroll Down</span>
-        <div className="w-[1px] h-12 bg-gradient-to-b from-cyan-500 to-transparent"></div>
-      </div>
+        <span className="text-[10px] uppercase tracking-[0.3em] font-bold">Scroll Down</span>
+        <div className="w-[1.5px] h-10 bg-gradient-to-b from-cyan-500 to-transparent"></div>
+      </a>
     </section>
   );
 }
